@@ -1,0 +1,20 @@
+<div class="page-content animatedView fadeIn">
+	<breadcrumbs></breadcrumbs>	
+	<h1>{{title}}</h1>
+	
+	<section ng-show="content == 'hotel'" class='ng-fade'>
+		<div kendo-grid="grid" k-options="optionsGrid"></div> 
+		<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    <div ng-include src="'/assets/js/admin/templates/componentes/eventos/hospedagem/hospedagens/form.html'"></div>
+		</div>
+	</section>	
+	<section class='ng-fade' ng-show="content == 'inclusos'">
+		<section ng-if="content == 'inclusos'">
+			<div kendo-grid="grid" k-options="optionsGrid"></div> 
+			<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+			    <div ng-include src="'/assets/js/admin/templates/componentes/eventos/hospedagem/hospedagens/form.html'"></div>
+			</div>
+		</section>	
+	</section>	
+</div>	
+

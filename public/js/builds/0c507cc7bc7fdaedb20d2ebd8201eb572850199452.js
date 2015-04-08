@@ -1,0 +1,2 @@
+$app.filter('substring',function(){return function(item){var contador=item.length;if(contador>100){return item.substring(0,100)+"...";}else{return item;}}});$app.filter('to_trusted',function($sce){return function(text){return $sce.trustAsHtml(text);};});$app.filter('startFrom',function(){return function(input,start){if(input){start=+start;return input.slice(start);}
+return[];}});$app.filter('offset',function(){return function(input,start){start=parseInt(start,10);return input.slice(start);};});

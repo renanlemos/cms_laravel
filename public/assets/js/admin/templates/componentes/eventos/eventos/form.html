@@ -1,0 +1,97 @@
+<form ng-submit="executeAction(formAction)" class="form">
+    <div class="f-toolbar">
+      <div class="row-fluid" ng-if="formView == 'new'">
+        <button type="submit" class="btn">Cadastrar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+      <div class="row-fluid" ng-if="formView == 'edit'">
+        <button type="submit" class="btn">Editar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+    </div> 
+    <div class="f-body">
+      <section kendo-tab-strip>
+        <ul>
+          <li class='k-state-active'>Dados</li>
+          <li>Meta Dados</li>
+        </ul>  
+        <div id='dados'>
+        <div class='row-fluid'>
+          <div class='span6'>
+          <div class='row-fuid'>
+            <label>Titulo</label>
+            <input type='text' ng-model='dataItem.titulo' class='span12' />
+          </div> 
+          <div class='row-fuid'>
+            <label>Apelido</label>
+            <input type='text' ng-model='dataItem.apelido' class='span12' />
+          </div> 
+          <div class='row-fuid'>
+            <label>Subtitulo</label>
+            <input type='text' ng-model='dataItem.subtitulo' class='span12' />
+          </div>
+          <div class='row-fuid'>
+            <label>Local do Evento</label>
+            <input type='text' ng-model='dataItem.local' class='span12' />
+          </div> 
+          <div class='row-fuid'>
+            <label>Data Inicio</label>
+            <input type='text' ng-model='dataItem.data_inicio' id="dataInicio" class='span12' kendo-date-picker="dataInicio" k-options="optionsDateInicio" mask-input format='99/99/9999'/>
+          </div>  
+          <div class='row-fuid'>
+            <label>Data Fim</label>
+            <input type='text' ng-model='dataItem.data_fim' id="dataFim" class='span12' kendo-date-picker="dataFim" k-options="optionsDateFim" mask-input format='99/99/9999'/>
+          </div> 
+          <div class='clear'></div>
+          <div class='row-fuid'>
+            <label class="checkbox">
+              <input type='checkbox' ng-model='dataItem.formulario' />
+              <span class='metro-checkbox'>Formulário</span>
+            </label>
+          </div> 
+           <div class='row-fuid'>
+            <label class="checkbox">
+              <input type='checkbox' ng-model='dataItem.publicado' />
+              <span class='metro-checkbox'>Publicado</span>
+            </label>
+          </div> 
+          </div>
+        <div class='span6'> 
+          <div class='row-fluid'>
+            <label>Categoria</label>
+            <input type='text' ng-model='dataItem.evento_categoria_id' class='span12' kendo-combo-box k-options="comboCategoria"/>
+          </div> 
+          <div class='row-fluid'>
+            <label>Contato</label>
+            <input type='text' ng-model='dataItem.evento_contato_id' class='span12' kendo-combo-box k-options="comboContato" />
+          </div>
+          <div class="row-fluid">
+            <label>Status</label>
+            <input type='text' ng-model='dataItem.status' kendo-drop-down-list k-options='comboStatus' class='span12'/>
+          </div>  
+        </div> 
+          </div>  
+        </div>
+        <div id='meta-dados'>
+          <div class="row-fluid">
+            <label>Meta Titulo</label>
+            <input type="text" ng-model="dataItem.meta_title" class="span12">
+          </div> 
+          <div class="row-fluid">
+            <label>Meta Palavras Chaves</label>
+            <input type="text" ng-model="dataItem.meta_keywords" class="span12">
+          </div> 
+          <div class="row-fluid">
+            <label>Meta Descriçao</label>
+            <textarea type="text" ng-model="dataItem.meta_description" class="span12" rows="7"></textarea>
+          </div> 
+          <div class="row-fluid">
+            <label>Meta Autor</label>
+            <input type="text" ng-model="dataItem.meta_author" class="span12">
+          </div>            
+        </div>
+      </section>    
+    </div>   
+</form>  

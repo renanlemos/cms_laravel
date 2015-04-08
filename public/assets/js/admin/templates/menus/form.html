@@ -1,0 +1,24 @@
+<form ng-submit="executeAction(formAction)" class="form">
+    <div class="f-toolbar">
+      <div class="row-fluid" ng-if="formView == 'new'">
+        <button type="submit" class="btn">Cadastrar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+      <div class="row-fluid" ng-if="formView == 'edit'">
+        <button type="submit" class="btn">Editar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+    </div> 
+    <div class="f-body">
+      <div class="row-fluid">
+        <label>Titulo</label>
+        <input type="text" ng-model="dataItem.titulo" class="span12"/>
+      </div> 
+      <div class="row-fluid">
+        <label>Apelido</label>
+        <input type="text" ng-model="dataItem.apelido" class="span12" lowercase/>
+      </div> 
+  	</div>
+</form>  

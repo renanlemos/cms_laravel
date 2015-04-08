@@ -1,0 +1,13 @@
+<form class="form">
+    <div class="f-toolbar">
+      <div class="row-fluid">
+        <button type="button" class="btn" ng-click="updateOrdem()">Alterar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close_ordem()">Cancelar</button>
+        <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+    </div> 
+    <div class="f-body">
+     	<modifica-ordem route='/admin/conteudo/artigos/artigo-fotos/ordem' params="paramsOrdem" ng-if="openOrdem == true" campo="imagem" path-imagem='/conteudo/artigos/artigo-{{artigo.id}}/'></modifica-ordem>
+      <div class="clear"></div>
+	</div>
+</form>  

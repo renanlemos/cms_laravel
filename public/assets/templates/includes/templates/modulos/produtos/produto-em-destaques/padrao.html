@@ -1,0 +1,34 @@
+<section class="modulo-produto-destaques {{parametros.class}} template-padrao" id="{{parametros.id}}">
+	<div class='titulo' ng-if="mostrar_titulo == true" ng-html="modulo_titulo">
+	</div>	
+	<div class='produtos-destaques'>
+		<section class='item repeat-move' ng-repeat='p in produtos' itemscope itemtype="http://schema.org/Product">
+			<figure class='capa' ng-if='p.capa == null'>
+				<img itemprop='image' src='/componentes/produtos/produto/sem-foto.jpg' alt='{{p.titulo}} - Sem Foto'/>
+			</figure>
+			<figure class='capa' ng-if='p.capa != null'>
+				<img itemprop='image' src='/componentes/produtos/produto-{{p.id}}/{{p.capa}}' alt='{{p.capa_alt}}'/>
+			</figure>
+			<div class='footer'>
+				<div class='body'>
+					<h3 itemprop='name'>{{p.titulo | substring: '0-60'}}</h3>
+					<div class='valor' ng-if='p.valor > 0' itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+						<span itemprop='priceCurrent' content='BRL'>R$</span>
+						<span itemprop='price' content='{{p.valor}}'>{{p.valor | currency: ''}}</span>
+					</div>	
+					<div class='valor' ng-if='p.valor == 0' itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+						<span itemprop='price'>CONSULTE!</span>
+					</div>	
+					<div class='mini-descricao' itemprop='description'>
+						{{p.mini_descricao | substring: '0-100'}}
+					</div>
+					<div class='detalhes'>
+						<a href='{{getApeldidoCategoriaProduto(p.produto_categoria_id)}}/{{p.apelido}}' itemprop='url'>
+							Detalhes
+						</a>		
+					</div>	
+				</div>	
+			</div>
+		</section>	
+	</div>	
+</section>	

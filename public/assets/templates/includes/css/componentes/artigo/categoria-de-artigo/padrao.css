@@ -1,0 +1,32 @@
+.categoria-de-artigo.template-padrao .item{width: 100%;border: 1px solid rgba(0, 0, 0, 0.2);margin-bottom:10px;}
+.categoria-de-artigo.template-padrao .item h3{font-weight: normal;font-size: 20px;margin-bottom: 10px;}
+.categoria-de-artigo.template-padrao .item .body{padding:20px;}
+.categoria-de-artigo.template-padrao .item .botao-detalhe a{background: #263d54;color:#FFF;font-size: 12px;text-shadow:none;}
+
+.categoria-de-artigo.template-padrao-detalhe h1{margin-bottom: 20px;float: left;position: relative;}
+.categoria-de-artigo.template-padrao-detalhe .btn-voltar{float: right;background: #FFF;color:#000;border:1px solid #dddddd; outline: none;}
+
+.categoria-de-artigo .search form input{border:1px solid #dddddd;font-size: 12px;outline: none;}
+.categoria-de-artigo .search form input:focus{border:1px solid #263d54;}
+
+@media only screen and (min-width: 1200px){
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px){
+}
+@media (min-width: 768px) and (max-width: 959px){
+}
+@media (max-width: 767px){
+	.categoria-de-artigo.template-padrao .item h3{font-size: 16px;}
+	.categoria-de-artigo.template-padrao .mini-descricao{font-size: 14px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+	.categoria-de-artigo.template-padrao .item h3{font-size: 14px;}
+	.categoria-de-artigo.template-padrao .mini-descricao{font-size: 12px;}
+}
+@media only screen and (max-width: 480px){
+	.categoria-de-artigo.template-padrao .item h3{font-size: 12px;}
+	.categoria-de-artigo.template-padrao .mini-descricao{font-size: 10px;}
+}
+@media (max-width: 320px){
+ 
+}

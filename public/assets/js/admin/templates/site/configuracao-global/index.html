@@ -1,0 +1,110 @@
+<div class="page-content animatedView fadeIn">
+	<breadcrumbs></breadcrumbs>	
+	<h1>{{title}}</h1>
+
+	<form class="form" ng-submit="save()">
+		<div class="row-fluid" style="margin-bottom:5px;">
+			<button type="submit" class="btn btn-info">
+			<span class="icon icon-checkmark-2"></span>
+				SALVAR
+			</button>
+			<img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+	    </div>
+		<div kendo-tab-strip>
+	        <ul>
+	            <li class="k-state-active">Definições</li>
+	            <li>Metadados</li>
+	            <li>Email</li>
+	            <li>Cabeçalho</li>
+	        </ul>
+	        <div>
+	        	<div class="row-fluid">
+	        		<label>Nome do Site</label>
+	        		<input type="text" ng-model="dataItem.nome" class="span6"/>
+	        	</div>	
+	        	<div class="row-fluid">
+	        		<label>Site Offline</label>
+	        		<label class="radio inline">
+  						<input type="radio" ng-model="dataItem.ativo" value="1" />
+  						<span class="metro-radio">Sim</span>
+					</label>
+	        		<label class="radio inline">
+  						<input type="radio" ng-model="dataItem.ativo" value="0" />
+  						<span class="metro-radio">Não</span>
+					</label>
+	        	</div><br>
+	        </div>
+	        <div>
+	        	<div class="row-fluid">
+	        		<label>Meta Descrição Geral do Site</label>
+	        		<textarea class="span12" ng-model="dataItem.meta_description">
+	        		</textarea>	
+	        	</div>	
+	        	<div class="row-fluid">
+	        		<label>Palavras Chaves Gerais do Site</label>
+	        		<textarea class="span12" ng-model="dataItem.meta_keywords">
+	        		</textarea>	
+	        	</div>	
+	        	<div class="row-fluid">
+	        		<label>Meta Autor Geral do Site</label>
+	        		<input type="text" ng-model="dataItem.meta_author" class="span12">
+	        	</div>
+	        	</div>
+	        <div>
+	        	<div class="row-fluid">
+	        		<label>Email Remetente</label>
+	        		<input type="text" ng-model="dataItem.email_remetente" class="span6"/>
+	        	</div>
+	        	<div class="row-fluid">
+	        		<label>Nome Remetente</label>
+	        		<input type="text" ng-model="dataItem.nome_remetente" class="span6"/>
+	        	</div>
+	        	<div class="row-fluid">
+	        		<label>Autenticação</label>
+	        		<label class="radio inline">
+  						<input type="radio" ng-model="dataItem.autenticacao_email" value="1" />
+  						<span class="metro-radio">Sim</span>
+					</label>
+	        		<label class="radio inline">
+  						<input type="radio" ng-model="dataItem.autenticacao_email" value="0" />
+  						<span class="metro-radio">Não</span>
+					</label>
+	        	</div><br>
+	        	<div class="row-fluid">
+	        		<label>Segurança</label>
+	        		<input type="text" class="span6" ng-model="dataItem.seguranca_email" kendo-drop-down-list k-options="comboSeguranca"/>
+	        	</div>
+	        	<div class="row-fluid">
+	        		<label>Porta</label>
+	        		<input type="text" ng-model="dataItem.porta_email" class="span6" />
+	        	</div>	
+	        	<div class="row-fluid">
+	        		<label>Usuário</label>
+	        		<input type="text" ng-model="dataItem.usuario_email" class="span6" />
+	        	</div>	
+	        	<div class="row-fluid">
+	        		<label>Senha</label>
+	        		<input type="password" ng-model="dataItem.senha_email" class="span6" />
+	        	</div>	
+	        	<div class="row-fluid">
+	        		<label>Servidor</label>
+	        		<input type="text" ng-model="dataItem.servidor_email" class="span6" />
+	        	</div>	
+	        </div>
+	        <div id="cabecalho">
+	        	<div class="row-fluid">
+	        		<label class="checkbox inline">
+  						<input type="checkbox" ng-model="dataItem.parametros.mostrar_google_analytics" />
+  						<span class="metro-checkbox">Mostrar Código Google Analytics</span>
+					</label>
+	        	</div>	
+	        	<div class="row-fluid ng-fade" ng-show="dataItem.parametros.mostrar_google_analytics">
+	        		<label>Código Google Analytics</label>
+	        		<textarea ng-model="dataItem.parametros.codigo_google_analytics" class="span12" rows="5">
+	        		</textarea>	
+	        	</div>	
+	        </div>	
+	    </div>
+	    
+	 </form>        
+</div>	

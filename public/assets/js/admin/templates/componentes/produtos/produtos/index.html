@@ -1,0 +1,52 @@
+<div class="page-content animatedView fadeIn">
+   <breadcrumbs></breadcrumbs>	
+   <h1>{{title}}</h1>	
+   <section ng-show="content == 'produtos'" class="fade">
+	   <div kendo-grid="grid" k-options="optionsGrid"></div> 
+		<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    <div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form.html'"></div>
+		</div>
+		<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+			<div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form_ordem.html'"></div>
+		</div>
+	</section>
+	<section ng-show="content == 'fotos'" class="fade">
+		<div ng-if="content == 'fotos'">
+			<div ng-controller="ProdutoFotosController">
+		  		<div kendo-grid="grid" k-options="optionsGrid(itemSelected)"></div>
+				<div class="forms-modal" kendo-window="modalFotos" k-options="conf_modal" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form_fotos.html'"></div>
+				</div>
+				<div class="forms-modal" kendo-window="modalOrdem" k-options="conf_modal_ordem" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form_fotos_ordem.html'"></div>
+				</div>
+			</div>
+		</div>	
+	</section>
+	<section ng-show="content == 'caracteristicas'" class="fade">
+		<div ng-if="content == 'caracteristicas'">
+			<div ng-controller="ProdutoProdutoCaracteristicasController">
+		  		<div kendo-grid="grid" k-options="optionsGrid(itemSelected)"></div>
+				<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form_caracteristicas.html'"></div>
+				</div>
+				<div class="forms-modal" kendo-window="modalOrdem" k-options="conf_modal_ordem" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form_ordem_caracteristica.html'"></div>
+				</div>
+			</div>
+		</div>	
+	</section>
+	<section ng-show="content == 'relacionados'" class="fade">
+		<div ng-if="content == 'relacionados'">
+			<div ng-controller="ProdutoRelacionadosController">
+		  		<div kendo-grid="grid" k-options="optionsGrid(itemSelected)"></div>
+				<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form_relacionados.html'"></div>
+				</div>
+				<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/produtos/produtos/form_ordem_relacionados.html'"></div>
+				</div>
+			</div>
+		</div>	
+	</section>	
+</div>	

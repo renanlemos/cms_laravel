@@ -1,0 +1,27 @@
+<div class="page-content animatedView fadeIn">
+   <breadcrumbs></breadcrumbs>	
+   <h1>{{title}}</h1>	
+   
+    <section ng-show="content == 'artigos'"> 
+	    <div kendo-grid="grid" k-options="optionsGrid"></div> 
+		<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    <div ng-include src="'/assets/js/admin/templates/conteudo/artigos/form.html'"></div>
+		</div>
+		<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+		    <div ng-include src="'/assets/js/admin/templates/conteudo/artigos/form_ordem.html'"></div>
+		</div>
+	</section>
+	<section ng-show="content == 'fotos'" class="fade">
+		<div ng-if="content == 'fotos'">
+			<div ng-controller="ArtigoFotosController">
+		  		<div kendo-grid="grid" k-options="optionsGrid(itemSelected)"></div>
+				<div class="forms-modal" kendo-window="modalFotos" k-options="conf_modal" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/conteudo/artigo-fotos/form.html'"></div>
+				</div>
+				<div class="forms-modal" kendo-window="modalOrdem" k-options="conf_modal_ordem" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/conteudo/artigo-fotos/form_ordem.html'"></div>
+				</div>
+			</div>
+		</div>	
+	</section>
+</div>	

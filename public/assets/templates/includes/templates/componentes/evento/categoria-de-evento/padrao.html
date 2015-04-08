@@ -1,0 +1,62 @@
+<div class="page-componenente {{link_parametros.class}}">
+	<div class="row-fluid page-componenente-cabecalho" ng-if="link_parametros.mostrar_cabecalho == true">
+		<hgroup>
+			<h1>{{link.titulo}}</h1>
+			<h2 ng-if="link_parametros.subtitulo.length > 0">{{link_parametros.subtitulo}}</h2>
+		</hgroup>	
+	</div>	
+	<div class="categoria-de-evento template-padrao">
+		<div class="row-fluid" ng-if="categoria_parametros.formulario_busca">
+			<nav class="search">
+				<form>
+					<input type="text" ng-model="search.titulo" placeholder="Digite um Título" ng-change='setPage(1)'/>
+				</form>	
+			</nav>	
+		</div>
+		<section itemscope itemtype="https://schema.org/Event" ng-repeat="e in repeat" class='item repeat-move'>
+			<figure class='capa' ng-if='e.capa == null'>
+				<img  src='/componentes/eventos/imagens/evento/sem-foto.jpg' alt='{{e.titulo}} - Sem Foto'/>
+			</figure>
+			<figure class='capa' ng-if='e.capa != null'>
+				<img  src='/componentes/eventos/imagens/evento-{{e.id}}/{{e.capa}}' alt='{{e.capa_alt}}'/>
+			</figure>
+			<div class='footer'>
+				<div class='content'>
+					<h3 itemprop='name'>{{e.titulo}}</h3>
+					<div class='local'>
+						<strong>Local: </strong><span itemprop='location'>{{e.local}}</span><br>
+					</div>
+					<div class='data'>
+						<strong>De: </strong><span itemprop="startDate">{{e.data_inicio | date: 'dd/MM/yyyy'}}</span><br>
+						<strong>a:  </strong><span itemprop="endDate">{{e.data_fim | date: 'dd/MM/yyyy'}}</span>
+					</div>
+					<div class='saiba-mais'>
+						<a href="/{{apelido1}}/{{e.apelido}}" title="{{e.titulo}}" itemprop='url'>SAIBA MAIS</a>
+					</div>	
+				</div>	
+			</div>	
+		</section>
+		<nav class="pagination" ng-if="categoria_parametros.paginacao">
+            <ul>
+              <li ng-class="prevPageDisabled()">
+                <a href ng-click="firstPage()">Primeira</a>
+              </li>	
+              <li ng-class="prevPageDisabled()">
+                <a href ng-click="prevPage()">« Prev</a>
+              </li>
+              <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                  <a href="#">{{n}}</a>
+              </li>
+              <li ng-class="nextPageDisabled()">
+                <a href ng-click="nextPage()">Next »</a>
+              </li>
+              <li ng-class="nextPageDisabled()">
+                <a href ng-click="lastPage()">Última</a>
+              </li>	
+            </ul>
+            <div class='row-fluid'>
+            	Total Items: {{filtered.length}}
+            </div>	
+        </nav>	
+	</div>
+</div>	

@@ -1,0 +1,47 @@
+<div class="page-componenente {{link_parametros.class}}">
+	<div class="row-fluid" ng-if="link_parametros.mostrar_cabecalho == true">
+		<h1>{{link.titulo}}</h1>
+		<h2 ng-if="link_parametros.subtitulo.length > 0">{{link_parametros.subtitulo}}</h2>
+	</div>	
+	<div class="unico-contato">
+		<div class="row-fluid" ng-if="contato.descricao_antes.length > 0">
+			<article ng-html="contato.descricao_antes"></article>
+		</div>
+		<div class='row-fluid'>
+			<nav>
+				<form ng-submit="sendEmail()">
+					<div class='row-fluid'>
+						<label>Nome</label>
+						<input type="text" ng-model="contato_form.nome" id="contato_form_nome" class='campo-text' />
+					</div>	
+					<div class='row-fluid'>
+						<label>Email</label>
+						<input type="text" ng-model="contato_form.email" id="contato_form_email" class='campo-text'/>
+					</div>	
+					<div class='row-fluid'>
+						<label>Telefone</label>
+						<input type="text" ng-model="contato_form.telefone" id="contato_form_telefone" mask="(99) 9999-9999" class='campo-text'/>
+					</div>	
+					<div class='row-fluid'>
+						<label>Assunto</label>
+						<input type="text" ng-model="contato_form.assunto" id="contato_form_assunto" class='campo-text'/>
+					</div>	
+					<div class='row-fluid'>
+						<label>Mensagem</label>
+						<textarea ng-model="contato_form.mensagem" id="contato_form_mensagem" class='campo-text'>
+						</textarea>
+					</div>	
+					<div class="row-fluid">
+						<button type="submit">
+							ENVIAR
+						</button>	
+						<img ng-src="{{image_loader}}" alt="Loading Formulário" ng-show="loaderForm == true" />
+					</div>	
+				</form>	
+			</nav>	
+		</div>	
+		<div class="row-fluid" ng-if="contato.descricao_depois.length > 0">
+			<article ng-html="contato.descricao_depois"></article>
+		</div>	
+	</div>
+</div>	

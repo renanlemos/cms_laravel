@@ -1,0 +1,28 @@
+.categoria-de-evento.template-padrao .item{width: 32%;margin-right: 1%;float:left;-webkit-box-shadow: 2px 3px 10px -5px #0e0a0f;box-shadow: 2px 3px 10px -5px #0e0a0f;}
+.categoria-de-evento.template-padrao .item .capa{margin:0;}
+
+.categoria-de-evento.template-padrao .item .footer .saiba-mais a{float: right;text-align: none;color:#263d54;font-size: 12px;outline: none;margin-bottom:10px;outline: 1px dotted #263d54;padding: 2px 7px;}
+.categoria-de-evento.template-padrao .item .footer .content{padding: 10px;}
+.categoria-de-evento.template-padrao .item .footer h3{font-weight: normal;font-size: 20px;color:#868686;}
+
+.categoria-de-evento.template-padrao .pagination{top: 30px;position: relative;display: table;width: 100%;float: left;}
+.categoria-de-evento.template-padrao .item .footer span,
+.categoria-de-evento.template-padrao .item .footer strong{font-size: 12px;}
+
+.categoria-de-evento.template-padrao .search input{border-width: 1px;width: 400px;}
+
+@media only screen and (min-width: 1200px){
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px){
+}
+@media (min-width: 768px) and (max-width: 959px){
+}
+@media (max-width: 767px){
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+}
+@media only screen and (max-width: 480px){
+}
+@media (max-width: 320px){
+ 
+}

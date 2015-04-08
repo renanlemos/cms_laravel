@@ -1,0 +1,13 @@
+<div class="page-componenente" id="{{artigo.id}}">
+	<div class="categoria-de-artigo template-padrao-detalhe {{artigo_parametros.class}}" id="{{artigo_parametros.id}}">
+		<div class="row-fluid">
+			<h1>{{artigo.titulo}}</h1>
+			<a href='/{{voltar}}' class='btn btn-voltar' title='Voltar para {{voltar}}'>
+				VOLTAR
+			</a>	
+		</div>	
+		<div class="row-fluid">
+			<article ng-html="artigo.descricao"></article>	
+		</div>	
+	</div>
+</div>	

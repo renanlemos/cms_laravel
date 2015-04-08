@@ -1,0 +1,26 @@
+<div class="page-login">
+	<div class="login-content animated bounceIn">
+		<div class="body">
+			<h1><span class="icon icon-login"></span>{{title}}</h1>
+			<form ng-submit="login()" class="form-login">
+				<div class="f-content">
+					<label><span class="icon-user"></span>Usuário</label>
+					<input type="text" ng-model="user.nome_usuario" />
+					<label><span class="icon-locked"></span>Senha</label>
+					<input type="password" ng-model="user.senha" />
+			    </div>
+				<div class="f-footer">
+					<button type="submit" class="btn">Enviar</button>
+					<div class="row-fluid">
+						<div class="loader-login fade" ng-show="loaderLogin == true">
+							Processando <span class="icon-reload"></span>
+						</div>	
+						<div class="resp-login fade" ng-show="displayRespLogin == true">
+							<p ng-bind-html="respLogin"></p>
+						</div>	
+					</div>	
+				</div>	
+			</form>	
+		</div>	
+	</div>
+</div>	

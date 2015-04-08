@@ -1,0 +1,26 @@
+<div class="page-content animatedView fadeIn">
+   <breadcrumbs></breadcrumbs>	
+   <h1>{{title}}</h1>	
+   
+   <section ng-show="content == 'menus'" class='ng-fade'>
+	   <div kendo-grid="grid" k-options="optionsGrid"></div> 
+	   <div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		   <div ng-include src="'/assets/js/admin/templates/menus/form.html'"></div>
+	   </div>
+	</section> 
+	<section ng-show="content == 'menu_itens'" class='ng-fade'>
+		<div ng-controller="MenuItensController" ng-if="content == 'menu_itens'" class='animate-if'>
+			<div class="forms-modal" kendo-window="modal_item" k-options="conf_modal_item" resize-window>
+			   <div ng-include src="'/assets/js/admin/templates/menus/itens/form.html'"></div>
+		   </div>
+		   <div class="forms-modal" kendo-window="modal_item_tipo" k-options="conf_modal_item_tipo" resize-window>
+			   <div ng-include src="'/assets/js/admin/templates/menus/itens/tipo.html'"></div>
+		   </div>
+		   <div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+			   <div ng-include src="'/assets/js/admin/templates/menus/itens/form_ordem.html'"></div>
+		   </div>
+		 	<div kendo-grid="grid" class='ng-fade' id="menuItensGrid" k-options="optionsGrid(menuSelecionado)">
+			</div> 
+		</div>   
+    </section>  
+</div>	

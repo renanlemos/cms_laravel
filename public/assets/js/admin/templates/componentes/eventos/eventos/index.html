@@ -1,0 +1,78 @@
+<div class="page-content animatedView fadeIn">
+    <breadcrumbs></breadcrumbs>	
+    <h1>{{title}}</h1>
+	<section ng-show="content == 'eventos'" class='fade'>	
+	    <div kendo-grid="grid" k-options="optionsGrid"></div> 
+		<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    <div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/form.html'"></div>
+		</div>
+		<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+		    <div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/form_ordem.html'"></div>
+		</div>
+	</section>
+	<section ng-show="content == 'servicos'">	
+		<div ng-if="content == 'servicos'" ng-controller='EventoEventoServicosController'>
+			<div kendo-grid="grid" k-options="optionsGrid(itemSelecionado)"></div>
+			<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/servicos/form.html'">
+		    	</div>
+			</div> 
+			<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/servicos/form_ordem.html'">
+		    	</div>
+			</div> 
+		</div>	
+	</section>	
+	<section ng-show="content == 'fotos'">	
+	   <div ng-if="content == 'fotos'" ng-controller='EventoFotosController'>
+			<div kendo-grid="grid" k-options="optionsGrid(itemSelecionado)"></div>
+			<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/fotos/form.html'">
+		    	</div>
+			</div> 
+			<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/fotos/form_ordem.html'">
+		    	</div>
+			</div> 
+		</div>	
+	</section>
+	<section ng-show="content == 'hospedagens'">	
+	   <div ng-if="content == 'hospedagens'" ng-controller='EventoEventoHospedagensController'>
+			<div kendo-grid="grid" k-options="optionsGrid(itemSelecionado)"></div>
+			<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/hospedagens/form.html'">
+		    	</div>
+			</div> 
+			<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/hospedagens/form_ordem.html'">
+		    	</div>
+			</div>
+		</div>	
+	</section>	
+	<section ng-show="content == 'valores'">
+		<div ng-if="content == 'valores'" ng-controller='EventoHospedagemValorsController'>
+			<div kendo-grid="grid" k-options="optionsGrid(itemValorSelecionado)"></div>
+			<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/hospedagens/valores/form.html'">
+		    	</div>
+			</div> 
+			<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/hospedagens/valores/form_ordem.html'">
+		    	</div>
+			</div>
+		</div>	
+	</section>	
+	<section ng-show="content == 'textos'">
+		<div ng-if="content == 'textos'" ng-controller='EventoTextosController'>
+			<div kendo-grid="grid" k-options="optionsGrid(itemSelecionado)"></div>
+			<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/textos/form.html'">
+		    	</div>
+			</div> 
+			<div class="forms-modal" kendo-window="modal_ordem" k-options="conf_modal_ordem" resize-window>
+		    	<div ng-include src="'/assets/js/admin/templates/componentes/eventos/eventos/textos/form_ordem.html'">
+		    	</div>
+			</div>
+		</div>	
+	</section>	
+</div>	

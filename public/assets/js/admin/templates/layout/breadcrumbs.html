@@ -1,0 +1,7 @@
+<nav class="breadcrumbs">
+	<ul>
+	    <li ng-repeat="b in breadcrumbs">
+	    	<a href="{{b.link}}" ng-class="{'active':currentLink == b.link }">{{b.nome}}</a>
+	    </li>
+	</ul>	
+</nav>	

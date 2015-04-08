@@ -1,0 +1,60 @@
+.modulo-menu-padrao .topo{width:95%;display: table;position: relative;border-bottom: 1px solid #fff;}
+.modulo-menu-padrao .topo .button-menu{margin-bottom:5px;color:#FFF;font-size: 30px;float: right;cursor: pointer;position: relative;}
+.modulo-menu-padrao .menu-body{padding: 20px 10px 0 10px;}
+.modulo-menu-padrao ul{list-style: none;margin: 0;}
+.modulo-menu-padrao ul li{display: inline;float: left;}
+.modulo-menu-padrao ul li a{
+text-decoration: none;color:#263d54;display: table;font-size: 12px;padding: 5px 10px;outline: none;
+-webkit-transition: background 500ms ease-in;
+-moz-transition: background 500ms ease-in;
+-ms-transition: background 500ms ease-in;
+-o-transition: background 500ms ease-in;
+transition: background 500ms ease-in;
+}
+.modulo-menu-padrao ul li a.item-parent .icon{float: right;}
+.modulo-menu-padrao ul li a.active,.modulo-menu-padrao ul li a:hover{background: #263d54;color:#FFF;}
+
+.modulo-menu-padrao li.item-parent{position: relative;}
+.modulo-menu-padrao ul li ul.sub-itens{
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: none;
+    display: none;
+    float: left;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 150px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
+.modulo-menu-padrao ul li ul.sub-itens .sub-itens{
+	left: 150px;
+	top:0;
+}
+.modulo-menu-padrao ul.sub-itens li a.active,.modulo-menu-padrao ul.sub-itens li a:hover{background: #263d54;color:#FFF;}
+.modulo-menu-padrao .sub-itens li a{width: 90%;padding: 5px 5%;}
+
+.modulo-menu-padrao .sub-itens li{display: block;float: left;width: 100%;}
+
+@media only screen and (min-width: 1200px){
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px){
+
+}
+@media (min-width: 768px) and (max-width: 959px){
+}
+@media (max-width: 767px){
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+
+}
+@media only screen and (max-width: 480px){
+}
+@media (max-width: 320px){
+
+}

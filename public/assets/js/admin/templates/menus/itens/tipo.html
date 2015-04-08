@@ -1,0 +1,39 @@
+<form class="form form-menu-tipo">
+    <div class="f-toolbar">
+      <div class="row-fluid">	
+        <button type="button" class="btn" ng-click="window.close_tipo()">OK</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close_tipo()">Cancelar</button>
+      </div>
+    </div> 
+    <div class="f-body">
+       <div class="row-fluid">
+       		<div class="span6">
+       			<div class="row-fluid">
+       				<h3>Artigos</h3>
+       				<a ng-click="getTipoMenu('artigo','unico-artigo','Único Artigo','create')" title="Único Artigo">Único Artigo</a><br>
+       				<a ng-click="getTipoMenu('artigo','categoria-de-artigo','Categoria de Artigo','create')" title="Categoria de Artigo">Categoria de Artigo</a>
+       			</div>	
+       			<div class="row-fluid">
+       				<h3>Contato</h3>
+       				<a ng-click="getTipoMenu('contato','unico-contato','Único Contato','create')" title="Único Contato">Único Contato</a><br>
+       			</div>	
+       		</div>
+       		<div class="span6">
+            <div class="row-fluid">
+              <h3>Produtos</h3>
+              <a ng-click="getTipoMenu('produto','unico-produto','Único Produto','create')" title="Único Artigo">Único Produto</a><br>
+              <a ng-click="getTipoMenu('produto','categoria-de-produto','Categoria de Produto','create')" title="Categoria de Artigo">Categoria de Produto</a>
+            </div>  
+            <div class="row-fluid">
+              <h3>Eventos</h3>
+              <a ng-click="getTipoMenu('evento','unico-evento','Único Evento','create')" title="Único Evento">
+                Único Produto
+              </a><br>
+              <a ng-click="getTipoMenu('evento','categoria-de-evento','Categoria de Evento','create')" title="Categoria de Evento">
+                Categoria de Evento
+              </a><br>
+            </div>  
+       		</div>	
+       </div>	
+  	</div>
+</form>  

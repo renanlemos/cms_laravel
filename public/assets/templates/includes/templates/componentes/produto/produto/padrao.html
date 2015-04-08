@@ -1,0 +1,73 @@
+<div class="page-componenente {{link_parametros.class}}">
+	<div class="produto-detalhe template-padrao {{produto_parametros.class}}" id="{{produto_parametros.id}}">	
+   		<h1>{{produto.titulo}}</h1>
+   		<div class='voltar'>
+   			<a href='/{{voltar}}'>
+   				<span class='icon-arrow-left-2'></span>
+   				VOLTAR
+   			</a>
+   		</div>	
+   		<article class='descricao' ng-html='produto.descricao'></article>
+         <section class='caracteristicas' ng-if='caracteristicas.tipos.length > 0'>
+            <div class='content'>
+               <div class='item' ng-repeat='t in caracteristicas.tipos'>
+                  <h3>{{t.descricao}}</h3>
+                  <div class='c-itens'>
+                     <div class='c-item' ng-repeat='c in caracteristicas.caracteristicas | filter:{produto_caracteristica_tipo_id:t.id}'>
+                        <img src='/componentes/produtos/caracteristicas/{{c.imagem}}' alt='{{c.descricao}}' />
+                        <span>{{c.descricao}}</span>
+                     </div>   
+                  </div>   
+               </div>
+         </section> 
+         <section class='compre'>
+            <div class='valor'>
+               <strong>A partir de:</strong>
+               <span ng-if='produto.valor > 0'>{{produto.valor | currency: ' R$ '}}</span>
+               <span ng-if='produto.valor == 0'>CONSULTE!</span>
+            </div>   
+            <a class='btn' title='Compre Agora'>COMPRE AGORA</a>
+         </section>   
+   		<section class='galeria' ng-if='fotos.length > 0'>
+   			<div class='item' ng-repeat='f in fotos'>
+   				<figure class='imagem'>
+                  <a class='fancybox' href='/componentes/produtos/produto-{{produto.id}}/{{f.imagem}}' title='{{f.titulo}}' rel="galeria-{{produto.id}}" fancybox>
+   					<img src='/componentes/produtos/produto-{{produto.id}}/{{f.imagem}}' alt='{{f.alt}}'/>
+                  </a>
+   				</figure>	
+   			</div>	
+   		</section>
+         <section class='produtos-relacionados' ng-if='produtos_relacionados.length > 0'>
+            <div class='content'>
+               <h3>Produtos Relacionados</h3>
+               <div class='item' ng-repeat='p in produtos_relacionados'>
+                  <figure class='imagem' ng-if='p.imagem != null'>
+                     <img src='/componentes/produtos/produto-{{p.id}}/{{p.imagem}}' alt='{{p.alt}}' />
+                  </figure> 
+                  <figure class='imagem' ng-if='p.imagem == null'>
+                     <img src='/componentes/produtos/produto/sem-foto.jpg' alt='{{p.alt}}' />
+                  </figure>
+                  <div class='footer'>
+                     <div class='body'>
+                        <h3>{{p.titulo | substring: '0-20'}}</h3>
+                        <div class='valor' ng-if='p.valor > 0'>
+                           {{p.valor | currency: ' R$'}}
+                        </div>   
+                        <div class='valor' ng-if='p.valor == 0'>
+                           CONSULTE!
+                        </div>   
+                        <div class='mini-descricao'>
+                           {{p.mini_descricao | substring: '0-100'}}
+                        </div>
+                        <div class='detalhes'>
+                           <a href='{{getApeldidoCategoriaProduto(p.produto_categoria_id)}}/{{p.apelido}}'>
+                              Detalhes
+                           </a>     
+                        </div>   
+                     </div>   
+                  </div>     
+               </div> 
+            </div>   
+         </section>   
+   </div>
+</div>	

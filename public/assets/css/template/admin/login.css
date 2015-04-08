@@ -1,0 +1,55 @@
+body.login{
+background: #34495e; /* Old browsers */
+background: -moz-linear-gradient(top, #34495e 0%, #557b99 51%, #34495e 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#34495e), color-stop(51%,#557b99), color-stop(100%,#34495e)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #34495e 0%,#557b99 51%,#34495e 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #34495e 0%,#557b99 51%,#34495e 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #34495e 0%,#557b99 51%,#34495e 100%); /* IE10+ */
+background: linear-gradient(to bottom, #34495e 0%,#557b99 51%,#34495e 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34495e', endColorstr='#34495e',GradientType=0 ); /* IE6-9 */	
+}
+.page-login .topo{background: #404040;display: table;width: 100%;text-align: center;color:#FFF;padding: 5px 0;font-size: 12px;}
+.page-login .login-content{width: 400px;margin: 0 auto;display: table;margin-top: 10%;border:1px solid #cecece;}
+.page-login .login-content .body{padding: 20px;background: #FFF;}
+.page-login .login-content h1{font-size: 20px;line-height: 10px;margin-bottom: 15px;}
+.page-login .login-content h1 .icon{margin-right: 5px;font-size: 18px;}
+.page-login .login-content form input{border-width: 1px;width: 100%;}
+.page-login .login-content form button{font-weight: normal;border:0;outline: none;}
+.page-login .footer{background: #7ea700;width: 100%;bottom: 0;position: fixed;text-align: center;color:#FFF;font-size: 12px;padding: 5px 0;}
+.page-login .loader-login{background: #7ea700;color:#FFF;margin-top: 10px;font-size: 12px;padding: 5px;}
+
+.fade{
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity: 1;
+}
+.fade.ng-hide-add{
+  opacity:0;
+  display: none !important;
+} 
+.fade.ng-hide-remove{
+  opacity:0.5;
+}
+.fade.ng-hide-remove-active{
+  opacity:1;
+}
+.resp-login{background: #b10a0a;margin-top: 10px;}
+.resp-login p{color:#FFF;font-size: 12px;padding: 5px;}
+
+@media only screen and (min-width: 1200px){
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px){
+}
+@media (min-width: 768px) and (max-width: 959px){
+}
+@media (max-width: 767px){
+
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+}
+@media only screen and (max-width: 480px){
+   .page-login .login-content{width: 95%;margin: 10% 5px 0 5px;}
+}
+@media (max-width: 320px){
+
+}

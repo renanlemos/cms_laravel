@@ -1,0 +1,22 @@
+<header id="topo">
+	<span class="button-menu icon-menu-3 menu-hide h-desktop" menu-toogle="mobile"></span>
+	<div class="box-user" ng-controller="AuthController">
+		<div class="content-user">
+			<ul dropdown-user>
+				<li><a class="item">
+					<span class="icon-users-2 icon"></span>
+					<!--<span class="arrow icon-arrow-right-8"></span>-->
+				    </a>
+					<ul>
+						<li>Nome: {{nome_admin_logado}}</li>
+						<li>Email: {{email_admin_logado}}</li>
+						<li class="logout">
+							<img src="/assets/images/loader1.gif" ng-show="loaderLogout == true" />
+							<a ng-click="logout()" class="btn btn-danger">SAIR</a>
+						</li>
+					</ul>	
+				</li>
+			</ul>	
+		</div>	
+	</div>	
+</header>	

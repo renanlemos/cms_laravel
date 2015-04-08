@@ -1,0 +1,23 @@
+<div class="page-content animatedView fadeIn">
+   <breadcrumbs></breadcrumbs>	
+   <h1>{{title}}</h1>	
+   <section ng-show="content == 'banner'" class="fade">
+	   <div kendo-grid="grid" k-options="optionsGrid"></div> 
+		<div class="forms-modal" kendo-window="modal" k-options="conf_modal" resize-window>
+		    <div ng-include src="'/assets/js/admin/templates/componentes/banner-sliders/form.html'"></div>
+		</div>
+	</section>
+	<section ng-show="content == 'imagens'" class="fade">
+		<div ng-if="content == 'imagens'">
+			<div ng-controller="BannerSliderFotosController">
+		  		<div kendo-grid="grid" k-options="optionsGrid(itemSelected)"></div>
+				<div class="forms-modal" kendo-window="modalFotos" k-options="conf_modal" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/banner-sliders/form_fotos.html'"></div>
+				</div>
+				<div class="forms-modal" kendo-window="modalOrdem" k-options="conf_modal_ordem" resize-window>
+				   	<div ng-include src="'/assets/js/admin/templates/componentes/banner-sliders/form_ordem.html'"></div>
+				</div>
+			</div>
+		</div>	
+	</section>	
+</div>	

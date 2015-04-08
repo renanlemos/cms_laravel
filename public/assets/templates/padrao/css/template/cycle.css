@@ -1,0 +1,30 @@
+.banner-slider-cycle{width: 100%;position: relative;z-index: 2;left: 0;top: 0;}
+.banner-slider-cycle .cycle-pager ul{list-style: none;margin: 0;}
+.banner-slider-cycle .cycle-pager ul li{display: inline;cursor: pointer;}
+.banner-slider-cycle .cycle-pager ul li.activeSlide img{border: 2px solid #263d54;}
+.banner-slider-cycle .cycle-legenda{z-index: 3;background: #263d54;color:#FFF;position: relative;margin-top:-40px;}
+.banner-slider-cycle .cycle-legenda .body{padding: 10px;font-size: 12px;}
+.banner-slider-cycle ul li img{z-index: 2;}
+.banner-slider-cycle .cycle-next{float:right;}
+.banner-slider-cycle .cycle-prev{float:left;}
+.banner-slider-cycle .cycle-next,.banner-slider-cycle .cycle-prev{position: relative;z-index: 10;font-size: 40px;margin-top:-25%;cursor: pointer;color:#263d54;}
+.banner-slider-cycle .cycle{width: 100%;}
+.banner-slider-cycle .cycle .itemCycle{width: 100% !important;}
+.banner-slider-cycle .cycle .itemCycle img{width: 100% !important;}
+
+@media only screen and (min-width: 1200px){
+
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px){
+}
+@media (min-width: 768px) and (max-width: 959px){
+}
+@media (max-width: 767px){
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+}
+@media only screen and (max-width: 480px){
+	.banner-slider-cycle .cycle-legenda{display: none;}
+}
+@media (max-width: 320px){
+}

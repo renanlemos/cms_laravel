@@ -1,0 +1,10 @@
+<div class="content-menu-body">
+	<div class="row-fluid v-desktop">
+		<div class="topo">
+			<span class="button-menu icon-menu-3 menu-show" menu-toogle="desktop"></span>
+		</div>	
+	</div>	
+	<div class="menu">
+		<menu-admin></menu-admin>
+	</div>	
+</div>	

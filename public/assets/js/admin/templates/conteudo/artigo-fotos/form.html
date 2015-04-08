@@ -1,0 +1,89 @@
+<form ng-submit="executeAction(formAction)" class="form">
+    <div class="f-toolbar">
+      <div class="row-fluid" ng-if="formView == 'new'">
+        <button type="submit" class="btn">Cadastrar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm == true"/>
+      </div>
+      <div class="row-fluid" ng-if="formView == 'edit'">
+        <button type="submit" class="btn">Editar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+    </div> 
+    <div class="f-body">
+      	<div kendo-tab-strip>
+	        <ul>
+	        	<li class="k-state-active">Dados</li>
+	        	<li>Uploads</li>
+	        	<li>Imagens</li>
+	        </ul>
+	        <div id="dados">	
+		      <div class="row-fluid">
+		      	<div class="span6">
+		      		<div class="row-fluid">
+				        <label>Imagem</label>
+				        <input type="text" id="comboImagem" ng-model="dataItem.imagem" class="span12" kendo-combo-box k-options="comboImagem"/>
+				    </div>
+				    <div class="row-fluid">
+				        <label>Título</label>
+				        <input type="text" ng-model="dataItem.titulo" class="span12" />
+				    </div>  
+				    <div class="row-fluid">
+				    	<label>Alt</label>
+		        		<input type="text" ng-model="dataItem.alt" class="span12" />
+				    </div>	
+				</div>
+			    <div class="span6">
+			    	<label>Imagem Selecionada</label>
+			    	<img src="/conteudo/artigos/artigo-{{dataItem.artigo_id}}/{{dataItem.imagem}}" width="150px;" ng-show="dataItem.imagem.length > 0"/>
+			    </div>    
+		        </div>
+		     	<div class="row-fluid">
+					<label>Legenda</label>
+		        	<textarea ng-model="dataItem.legenda" class="span12" rows="4"></textarea>
+			    </div>	
+				<div class="row-fluid">
+				  	<label class="checkbox">
+                  		<input type="checkbox" ng-model="dataItem.publicado">
+                   		<span class="metro-checkbox">Publicado</span>
+                	</label>	
+				</div> 
+				<div class="row-fluid">
+				  	<label class="checkbox">
+                  		<input type="checkbox" ng-model="dataItem.capa">
+                   		<span class="metro-checkbox">Capa</span>
+                	</label>	
+				</div> 	
+		    </div>
+		    <div id="uploads">
+		    	<div class="row-fluid upload-files">    
+		          <label>Escolher Arquivo:</label>
+		          <input type="file" onchange="angular.element(this).scope().changeFiles(this.files)" multiple/>
+		          <button type="button" ng-disabled="filesService.length == 0"  ng-click="uploadFiles()" class="btn btn-primary">
+		            <span class="icon-upload"></span>
+		            ENVIAR
+		          </button>
+		          <div class="row-fluid upload-files-resp btn-primary" ng-show="fileRespService.length > 0">
+		          	<div class="body" ng-bind-html="fileRespService | to_trusted">
+		          	</div>	
+		          </div>	
+		        </div> 
+		        <div class="row-fluid container-uploads-files">
+		        	<ul class="nav">
+		        		<li ng-repeat="f in filesService">
+			        		{{f.name}}
+			        		<button type="button" class="btn btn-danger" ng-click="deleteFile($index)">
+			        			<span class="icon icon-remove"></span>
+			        		</button>
+		        		</li>	
+		        	</ul>	
+		        </div> 
+		    </div> 
+		    <div id="imagens">
+		    	<file-images-service path='/conteudo/artigos/artigo-{{dataItem.artigo_id}}/' images="fileImagesService" refresh-combo="true" combo="#comboImagem">
+		       </file-images-service>
+		    </div> 	
+	    </div>   
+	</div>
+</form>  

@@ -1,0 +1,152 @@
+<form ng-submit="executeAction(formAction)" class="form">
+    <div class="f-toolbar">
+      <div class="row-fluid" ng-if="formView == 'new'">
+        <button type="button" class="btn btn-primary" ng-click="window.tipo()">Tipo</button>
+        <button type="submit" class="btn">Cadastrar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm == true"/>
+      </div>
+      <div class="row-fluid" ng-if="formView == 'edit'">
+        <button type="button" class="btn btn-primary" ng-click="window.tipo()">Tipo</button>
+        <button type="submit" class="btn">Editar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm == true"/>
+      </div>
+    </div> 
+    <div class="f-body">
+      <div kendo-tab-strip>
+        <ul>
+          <li class="k-state-active">Dados</li>
+          <li>Uploads Icones</li>
+          <li>Icones</li>
+          <li>Meta Dados</li>
+        </ul>  
+        <div id="dados">
+          <div class="row-fluid">
+            <div class="span6">
+              <div class="row-fluid">
+                <label>Tipo de Item</label>
+                <input type="text" ng-model="dataItem.tipo_descricao" class="span12" readonly />
+              </div> 
+              <div class="row-fluid">
+                <label>Titulo</label>
+                <input type="text" ng-model="dataItem.titulo" class="span12"/>
+              </div> 
+              <div class="row-fluid">
+                <label>Apelido</label>
+                <input type="text" ng-model="dataItem.apelido" class="span12" lowercase/>
+              </div> 
+              <div class="row-fluid">
+                <div class="span6">
+                  <label class='checkbox'>
+                    <input type="checkbox" ng-model="dataItem.publicado"/>
+                    <span class="metro-checkbox">Publicado</sapn>
+                  </label>
+                </div>
+                <div class="span6">
+                  <label class='checkbox'>
+                    <input type="checkbox" ng-model="dataItem.pagina_inicial"/>
+                    <span class="metro-checkbox">Página Inicial</sapn>
+                  </label>
+                </div>  
+              </div> 
+              <div class="row-fluid">
+                <label>Item Pai</label>
+                <input type="text" ng-model="dataItem.item_pai" class="span12" kendo-combo-box="combo_item_pai" k-options='comboItemPai' id="comboItemPai"/>
+              </div> 
+            </div>
+            <div class="span6">
+              <ul kendo-panel-bar>
+                <li class="k-state-active">
+                  Configurações
+                  <div style="padding: 0.5em 1em;" class='parametros-configuracao'>
+                  </div>   
+                </li>
+                <li>
+                  Opções de Exibição
+                  <div style="padding: 0.5em 1em;">
+                    <div class="row-fluid">  
+                      <label class='checkbox'>
+                        <input type="checkbox" ng-model="dataItem.parametros.mostrar_cabecalho" class="span12"/>
+                        <span class="metro-checkbox">Mostrar Cabeçalho</span>
+                      </label>
+                    </div>
+                    <div class="row-fluid">  
+                      <label>Subtítulo da Página</label>
+                      <input type="text" ng-model="dataItem.parametros.subtitulo" class="span12"/>
+                    </div>  
+                    <div class="row-fluid">  
+                      <label>Classe da Página</label>
+                      <input type="text" ng-model="dataItem.parametros.class" class="span12"/>
+                    </div> 
+                    <div class="row-fluid">  
+                      <label>Icone de Menu</label>
+                      <input type="text" ng-model="dataItem.parametros.icone" class="span12" kendo-combo-box k-options='comboImagem' id='comboImagem' />
+                    </div>
+                    <div class="row-fluid">  
+                      <label class='checkbox'>
+                        <input type="checkbox" ng-model="dataItem.parametros.mostrar_icone_menu" class="span12"/>
+                        <span class="metro-checkbox">Mostrar Icone de Menu</span>
+                      </label>
+                    </div> 
+                    <div class="row-fluid">  
+                      <label class='checkbox'>
+                        <input type="checkbox" ng-model="dataItem.parametros.mostrar_titulo_menu" class="span12"/>
+                        <span class="metro-checkbox">Mostrar Titulo de Menu</span>
+                      </label>
+                    </div> 
+                  </div>  
+                </li>  
+              </ul>  
+            </div>  
+          </div>  
+        </div>
+        <div id="uploads">
+          <div class="row-fluid upload-files">    
+              <label>Escolher Arquivo:</label>
+              <input type="file" onchange="angular.element(this).scope().changeFiles(this.files)" multiple/>
+              <button type="button" ng-disabled="filesService.length == 0"  ng-click="uploadFiles()" class="btn btn-primary">
+                <span class="icon-upload"></span>
+                ENVIAR
+              </button>
+              <div class="row-fluid upload-files-resp btn-primary" ng-show="fileRespService.length > 0">
+                <div class="body" ng-bind-html="fileRespService | to_trusted">
+                </div>  
+              </div>  
+            </div> 
+            <div class="row-fluid container-uploads-files">
+              <ul class="nav">
+                <li ng-repeat="f in filesService">
+                  {{f.name}}
+                  <button type="button" class="btn btn-danger" ng-click="deleteFile($index)">
+                    <span class="icon icon-remove"></span>
+                  </button>
+                </li> 
+              </ul> 
+            </div> 
+        </div> 
+        <div id="icones" class='icones-menu-itens'>
+          <file-images-service path='/menus/icones/' images="fileImagesService" refresh-combo="true" combo="#comboImagem">
+           </file-images-service>
+        </div>  
+        <div id="meta-dados">
+          <div class="row-fluid">
+            <label>Meta Titulo</label>
+            <input type="text" ng-model="dataItem.meta_title" class="span12">
+          </div> 
+          <div class="row-fluid">
+            <label>Meta Palavras Chaves</label>
+            <input type="text" ng-model="dataItem.meta_keywords" class="span12">
+          </div> 
+          <div class="row-fluid">
+            <label>Meta Descriçao</label>
+            <textarea type="text" ng-model="dataItem.meta_description" class="span12" rows="7"></textarea>
+          </div> 
+          <div class="row-fluid">
+            <label>Meta Autor</label>
+            <input type="text" ng-model="dataItem.meta_author" class="span12">
+          </div> 
+        </div>
+      </div>    
+  	</div>
+</form>  

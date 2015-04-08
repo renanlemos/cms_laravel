@@ -1,0 +1,56 @@
+<form ng-submit="executeAction(formAction)" class="form form-logs">
+  <div class="f-toolbar">
+    <div class="row-fluid" >
+      <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+    </div>
+  </div> 
+  <div class="f-body">
+     <div kendo-tab-strip>
+        <ul>
+          <li class="k-state-active">Dados</li>
+          <li ng-show="dataItem.acao == 'update'">Alteração</li>
+          <li>Item</li>
+        </ul>
+        <div>
+          <div class="row-fluid dados-log">
+            <strong>Id:</strong> <span>{{dataItem.id}}</span><br>
+            <strong>Nome Usuário:</strong> <span>{{dataItem.nome_usuario}}</span><br>
+            <strong>Id Usuário:</strong> <span>{{dataItem.usuario_id}}</span><br>
+            <strong>Tabela:</strong> <span>{{dataItem.tabela}}</span><br>
+            <strong>Ação:</strong> <span>{{dataItem.acao}}</span><br>
+            <strong>Navegador:</strong> <span>{{dataItem.browser_nome}} {{dataItem.browser_versao}}</span><br>
+            <strong>Data Log:</strong>{{data_log | date: "dd/MM/yyyy HH:mm:ss"}}
+          </div>  
+        </div>
+        <div>
+          <div ng-show="dataItem.acao == 'update'">
+            <strong>Campo:</strong>  <span>{{dataItem.campo}}</span>
+            <hr>
+            <div class="clear"></div>
+            <div class="row-fluid">
+              <div class="span6">
+                <strong>De:</strong><br><br>
+                <p ng-bind-html="valor_antigo"></p>
+              </div>
+              <div class="span6">  
+                <strong>Para:</strong><br><br>
+                <p ng-bind-html="valor_novo | to_trusted"></p>
+              </div>  
+            </div> 
+          </div>     
+        </div>  
+        <div>
+          <div class="container-dados-observacao">
+            <div ng-repeat="o in observacoes" class="row-fluid dados-observacao">
+              <div class="content-left">
+                <strong>{{o.index}}:</strong>
+              </div>
+              <div class="content-right">  
+                <span ng-bind-html="o.valor | to_trusted"></span>  
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+	</div>
+</form>  

@@ -1,0 +1,120 @@
+<form ng-submit="executeAction(formAction)" class="form">
+    <div class="f-toolbar">
+      <div class="row-fluid" ng-if="formView == 'new'">
+        <button type="submit" class="btn">Cadastrar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+      <div class="row-fluid" ng-if="formView == 'edit'">
+        <button type="submit" class="btn">Editar</button>
+        <button type="button" class="btn btn-danger" ng-click="window.close()">Cancelar</button>
+            <img src="/assets/images/loader1.gif" class="f-loader" ng-show="loaderForm"/>
+      </div>
+    </div> 
+    <div class="f-body">
+        <div kendo-tab-strip>
+           <ul>
+              <li class="k-state-active">Dados</li>
+              <li ng-click="loaderEditorDescricao()">Descrição</li>
+              <li>Meta Dados</li>
+           </ul>
+           <div id="dados"> 
+              <div class="row-fluid">
+                <div class="span6">
+                  <div class="row-fluid">
+                    <label>Título</label>
+                    <input type="text" ng-model="dataItem.titulo" class="span12"/>
+                  </div>  
+                  <div class="row-fluid">
+                    <label>apelido</label>
+                    <input type="text" ng-model="dataItem.apelido" class="span12" lowercase/>
+                  </div>
+                  <div class="row-fluid">
+                    <label class="checkbox">
+                      <input type="checkbox" ng-model="dataItem.publicado">
+                        <span class="metro-checkbox">Publicado</span>
+                      </label>
+                  </div> 
+                </div>
+                <div class="span6">
+                  <ul kendo-panel-bar>
+                    <li class="k-state-active">
+                      Configurações
+                      <div style="padding: 0.5em 1em;">
+                        <div class="row-fluid">
+                          <label>Template</label>
+                          <input type="text" ng-model="dataItem.parametros.template" class="span12" kendo-combo-box k-options="comboTemplates" />
+                        </div>  
+                        <div class="row-fluid">
+                          <label class="checkbox">
+                            <input type="checkbox" ng-model="dataItem.parametros.formulario_busca">
+                            <span class="metro-checkbox">Mostrar Formulário de Busca</span>
+                          </label>
+                        </div> 
+                        <div class="row-fluid">
+                          <label class="checkbox">
+                            <input type="checkbox" ng-model="dataItem.parametros.paginacao">
+                            <span class="metro-checkbox">Mostrar Paginação</span>
+                          </label>
+                        </div> 
+                        <div class="row-fluid">
+                          <label>Itens por Página</label>
+                          <input type="text" ng-model="dataItem.parametros.paginacao_itens_por_pagina" class="span12" kendo-numeric-text-box k-options="numericOptions" />
+                        </div>  
+                      </div>   
+                    </li>
+                    <li>
+                      Opções de Exibição
+                      <div style="padding: 0.5em 1em;">
+                        <div class="row-fluid">
+                          <label class="checkbox">
+                            <input type="checkbox" ng-model="dataItem.parametros.mostrar_titulo">
+                            <span class="metro-checkbox">Mostrar Título</span>
+                          </label>
+                        </div>
+                        <div class="row-fluid">
+                          <label>Tag Título</label>
+                          <input type="text" ng-model="dataItem.parametros.tag_titulo" kendo-drop-down-list k-options="comboTagTitulo" class="span12"/>
+                        </div>
+                        <div class="row-fluid">
+                          <label>Atribuir uma Classe:</label>
+                          <input type="text" ng-model="dataItem.parametros.class" class='span12' />
+                        </div> 
+                        <div class="row-fluid">
+                          <label>Atribuir um Id:</label>
+                          <input type="text" ng-model="dataItem.parametros.id" class='span12' />
+                        </div>    
+                      </div>  
+                    </li>  
+                  </ul>  
+                </div>  
+              </div>   
+           </div>  
+           <div id="descricao">
+              <div class="row-fluid">
+                <div ng-bind-html="ckeditorStatus"></div>
+              </div>  
+              <textarea ckeditor ng-model="dataItem.descricao" ng-if="editorDescricao"></textarea>
+            </div>
+            <div id="meta-dados">
+              <div class="row-fluid">
+                <label>Meta Titulo</label>
+                <input type="text" ng-model="dataItem.meta_title" class="span12">
+              </div> 
+              <div class="row-fluid">
+                <label>Meta Palavras Chaves</label>
+                <input type="text" ng-model="dataItem.meta_keywords" class="span12">
+              </div> 
+              <div class="row-fluid">
+                <label>Meta Descriçao</label>
+                <textarea type="text" ng-model="dataItem.meta_description" class="span12" rows="7"></textarea>
+              </div> 
+              <div class="row-fluid">
+                <label>Meta Autor</label>
+                <input type="text" ng-model="dataItem.meta_author" class="span12">
+              </div> 
+            </div>   
+        </div>
+      </div>   
+	</div>
+</form>  
